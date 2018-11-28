@@ -35,11 +35,12 @@ public class MatplotDemoTest {
 
     @Test
     public void test3() throws IOException, PythonExecutionException {
-        List<Double> x = IntStream.rangeClosed(0, (int) ((10) / 0.2)).mapToDouble(s -> s * 0.2).boxed().collect(Collectors.toList());
+        List<Double> x = IntStream.rangeClosed(0, ((10))).mapToDouble(s -> s).boxed().collect(Collectors.toList());
         List<Double> y = new ArrayList<>(x);
 
         //plt.plot().add(x,y1).add(x,y2).add(x,y3).add(x,y4);
         plt.bar().add(x, y, "0.1").linestyle("-").linewidth("1.5").label("y=sin(x)").color(LineColor.MAGENTA);
+        plt.legend().loc("upper right");
         plt.show();
     }
 

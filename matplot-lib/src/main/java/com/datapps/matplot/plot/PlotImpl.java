@@ -179,10 +179,11 @@ public class PlotImpl implements Plot {
     @Override
     public void executeSilently() throws IOException, PythonExecutionException {
         List<String> scriptLines = new LinkedList<>();
+        scriptLines.add("# coding=utf-8");
         scriptLines.add("import numpy as np");
         scriptLines.add("import matplotlib as mpl");
         scriptLines.add("mpl.use('Agg')");
-        scriptLines.add("import matplotlib.pyplot as plt");
+        scriptLines.add("import matplotlib.pyplot as plt\n");
         registeredBuilders.forEach(b -> scriptLines.add(b.build()));
         showBuilders.forEach(b -> scriptLines.add(b.build()));
         PyCommand command = new PyCommand(pythonConfig);
@@ -195,13 +196,14 @@ public class PlotImpl implements Plot {
     @Override
     public void show() throws IOException, PythonExecutionException {
         List<String> scriptLines = new LinkedList<>();
+        scriptLines.add("# coding=utf-8");
         scriptLines.add("import numpy as np");
         if (dryRun) {
             // No need DISPLAY for test run
             scriptLines.add("import matplotlib as mpl");
             scriptLines.add("mpl.use('Agg')");
         }
-        scriptLines.add("import matplotlib.pyplot as plt");
+        scriptLines.add("import matplotlib.pyplot as plt\n");
         registeredBuilders.forEach(b -> scriptLines.add(b.build()));
 
         // show

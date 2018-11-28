@@ -112,6 +112,9 @@ public class PyCommand {
     }
 
     public void execute(String pythonScript) throws IOException, PythonExecutionException {
+
+        LOGGER.info("python script: \n==============================\n" + pythonScript + "\n==============================");
+
         File tmpDir = Files.createTempDir();
         tmpDir.deleteOnExit();
         File script = new File(tmpDir, "exec.py");
