@@ -3,6 +3,7 @@ package com.datapps.matplot.plot;
 import java.io.IOException;
 
 import com.datapps.matplot.PythonExecutionException;
+import com.datapps.matplot.builder.BarBuilder;
 import com.datapps.matplot.builder.CLabelBuilder;
 import com.datapps.matplot.builder.ContourBuilder;
 import com.datapps.matplot.builder.HistBuilder;
@@ -45,6 +46,8 @@ public interface Plot {
     TextBuilder text(double x, double y, String s);
 
     PlotBuilder plot();
+
+    BarBuilder bar();
 
     ContourBuilder contour();
 

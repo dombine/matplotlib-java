@@ -7,6 +7,8 @@ import java.util.List;
 import com.datapps.matplot.PyCommand;
 import com.datapps.matplot.PythonExecutionException;
 import com.datapps.matplot.builder.ArgsBuilderImpl;
+import com.datapps.matplot.builder.BarBuilder;
+import com.datapps.matplot.builder.BarBuilderImpl;
 import com.datapps.matplot.builder.Builder;
 import com.datapps.matplot.builder.CLabelBuilder;
 import com.datapps.matplot.builder.CLabelBuilderImpl;
@@ -111,6 +113,13 @@ public class PlotImpl implements Plot {
     @Override
     public PlotBuilder plot() {
         PlotBuilder builder = new PlotBuilderImpl();
+        registeredBuilders.add(builder);
+        return builder;
+    }
+
+    @Override
+    public BarBuilder bar() {
+        BarBuilder builder = new BarBuilderImpl();
         registeredBuilders.add(builder);
         return builder;
     }
